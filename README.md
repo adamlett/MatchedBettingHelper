@@ -19,7 +19,7 @@ A chrome extension that provides a quick matched betting calculator.
  ## Installation
  1. Navigate to [chrome://extensions](chrome://extensions) or open Extensions page
  2. Enable Developer mode
- 3. Drag and drop [MatchedBettingHelper.crx](https://github.com/adamlett/MatchedBettingHelper/blob/master/MatchedBettingHelper.crx) onto the chrome://extensions page 
+ 3. Drag and drop [MatchedBettingHelper.crx](https://github.com/adamlett/MatchedBettingHelper/raw/master/MatchedBettingHelper.crx) onto the chrome://extensions page 
  
  ## Usage
   * Click icon to activate calculator
