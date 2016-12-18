@@ -72,14 +72,23 @@ function calculate(){
 		var layStake = (backReturn/(layOdds-layCommission/100)).toFixed(2);
 		var layRisk = layStake*(layOdds-1);
 		var backProfit = backReturn - layRisk;
+		layRisk = layRisk.toFixed(2);
 		var netProfit = (parseFloat(freeStake) + parseFloat(backProfit) - parseFloat(backStake)).toFixed(2);
+
+		if(type == "Q"){
+			var extraction = "N/A";
+		}
+		else {
+			var extraction = ((netProfit / freeStake) * 100) + "%";
+		}
 		var info = document.getElementById("info").value;
 		document.getElementById("requiredStake").innerHTML = layStake;
 		document.getElementById("profit").innerHTML = netProfit;
-
+		document.getElementById("liability").innerHTML = layRisk;
+		document.getElementById("extraction").innerHTML = extraction;
 		// Save it using the Chrome extension storage API.
 		chrome.storage.sync.set({'info': info,'backStake': backStake, 'backOdds': backOdds, 'layOdds' : layOdds,
-				'layCommission' : layCommission, 'type' : type, 'layStake' : layStake, 'netProfit' : netProfit}, function() {
+				'layCommission' : layCommission, 'type' : type, 'layStake' : layStake, 'layRisk' : layRisk,'netProfit' : netProfit, 'extraction' : extraction}, function() {
 			console.log('Settings saved');
 		});
 	} else incompleteFields();
@@ -90,7 +99,7 @@ function betNotification() {
 	if (Notification.permission !== "granted")
 		Notification.requestPermission();
 	else {
-		 chrome.storage.sync.get(['info','backStake','backOdds','layOdds','layCommission','type', 'layStake', 'netProfit'], function(items) {
+		 chrome.storage.sync.get(['info','backStake','backOdds','layOdds','layCommission','type', 'layStake', 'layRisk', 'netProfit', 'extraction'], function(items) {
 			 var typeOfBet = ""; // Tyoe of bet
 			 if(items.type === "Q")
 				 typeOfBet = "Qualifying bet";
@@ -116,6 +125,8 @@ function betNotification() {
 function incompleteFields() {
 	document.getElementById("requiredStake").innerHTML = "N/A";
 	document.getElementById("profit").innerHTML = "N/A";
+	document.getElementById("liability").innerHTML = "N/A";
+	document.getElementById("extraction").innerHTML = "N/A";
 }
 
 function loadData(){ // Load stored local data
@@ -124,10 +135,10 @@ function loadData(){ // Load stored local data
   Notification.requestPermission();
 
  console.log("Test Success");
- chrome.storage.sync.get(['info','backStake','backOdds','layOdds','layCommission','type', 'layStake', 'netProfit'], function(items) {
+ chrome.storage.sync.get(['info','backStake','backOdds','layOdds','layCommission','type', 'layStake', 'layRisk', 'netProfit', 'extraction'], function(items) {
 	console.log('Settings retrieved', items);
 	if (typeof items.info != 'undefined')
-		document.getElementById("info").value = items.info;	
+		document.getElementById("info").value = items.info;
 	document.getElementById("backStake").value = items.backStake;
 	document.getElementById("backOdds").value = items.backOdds;
 	document.getElementById("layOdds").value = items.layOdds;
@@ -135,6 +146,8 @@ function loadData(){ // Load stored local data
 	document.getElementById(items.type).checked = true;
 	document.getElementById("requiredStake").innerHTML = items.layStake;
 	document.getElementById("profit").innerHTML = items.netProfit;
+	document.getElementById("liability").innerHTML = items.layRisk;
+	document.getElementById("extraction").innerHTML = items.extraction;
 	});
 }
 
@@ -147,17 +160,17 @@ function validate(backStake, backOdds, layOdds, layCommission){
 	return incomplete;
 }
 
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-	for (key in changes) {
-		var storageChange = changes[key];
-		console.log('Storage key "%s" in namespace "%s" changed. ' +
-								'Old value was "%s", new value is "%s".',
-								key,
-								namespace,
-								storageChange.oldValue,
-								storageChange.newValue);
-	}
-});
+// chrome.storage.onChanged.addListener(function(changes, namespace) {
+// 	for (key in changes) {
+// 		var storageChange = changes[key];
+// 		console.log('Storage key "%s" in namespace "%s" changed. ' +
+// 								'Old value was "%s", new value is "%s".',
+// 								key,
+// 								namespace,
+// 								storageChange.oldValue,
+// 								storageChange.newValue);
+// 	}
+// });
 
 document.getElementById('clickme').addEventListener('click', betNotification);
 document.addEventListener('DOMContentLoaded', function() {

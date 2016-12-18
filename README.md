@@ -7,6 +7,7 @@ A chrome extension that provides a quick matched betting calculator.
   * Useful for:
     * Comparing different odd choices
     * Information available while placing bet
+* Display bet extraction percentage
 * Set back and lay odds by right clicking on elements (incomplete feature)
  * Confirmed working:
    * Smarkets
@@ -16,15 +17,14 @@ A chrome extension that provides a quick matched betting calculator.
  * Not working:
     * SkyBet
  * Everything else untested
- 
+
  ## Installation
  1. Navigate to [chrome://extensions](chrome://extensions) or open Extensions page
  2. Enable Developer mode
- 3. Drag and drop [MatchedBettingHelper.crx](https://github.com/adamlett/MatchedBettingHelper/raw/master/MatchedBettingHelper.crx) onto the chrome://extensions page 
- 
+ 3. Drag and drop [MatchedBettingHelper.crx](https://github.com/adamlett/MatchedBettingHelper/raw/master/MatchedBettingHelper.crx) onto the chrome://extensions page
+
  ## Usage
   * Click icon to activate calculator
   * Input bet information, caclulation takes place automatically
   * Click "Notify" to get the bet details as a notification
   * Right-click on the odds you want to set and select "Matched Betting Helper" from context menu
- 

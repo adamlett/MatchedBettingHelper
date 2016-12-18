@@ -86,7 +86,7 @@
     align-items: center;
     justify-content: center;
 	}
- 	#profitContainer {
+ 	#profitContainer, #extractionContainer{
 		float: right;
 		padding-right: 5px;
 	}
@@ -150,6 +150,15 @@
 		<strong>Total profit:</strong> £
 		<i id="profit"></i>
 	</div>
+	<div id="liabilityContainer">
+		<strong>Lay liability:</strong> £
+		<i id="liability"></i>
+		<div id="extractionContainer">
+			<strong>Bet extraction (%):</strong>
+			<i id="extraction">%</i>
+		</div>
+	</div>
+
 </div>
 <div id="buttonContainer">
 	<button id="clickme">Notify</button>
