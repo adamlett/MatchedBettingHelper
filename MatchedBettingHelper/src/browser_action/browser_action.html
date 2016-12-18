@@ -121,39 +121,39 @@
 <h1>Matched Betting Calculator</h1>
 
 <div id="descriptionContainer">
-	<input type="text" id="info" placeholder="Optional event description">
+	<input type="text" id="info" placeholder="Optional event description" title="Useful for keeping track of bet selection">
 </div>
 	<div id="betTypeContainer">
-	  <input type="radio" class="radio" id="Q" name="type" value="Q" checked><label for="Q">Qualifying bet</label>
-	  <input type="radio" class="radio" id="SR" name="type" value="SR"><label for="SR">Free bet (SR)</label>
-	  <input type="radio" class="radio" id="SNR" name="type" value="SNR"><label for="SNR"> Free bet (SNR)</label>
+	  <input type="radio" class="radio" id="Q" title="Qualifying bet" name="type" value="Q" checked><label for="Q" title="Qualifying bet">Qualifying bet</label>
+	  <input type="radio" class="radio" id="SNR" title="Stake-not-returned free bet (most free bets)" name="type" value="SNR"><label for="SNR" title="Stake-not-returned free bet (most free bets)" >Free bet (SNR)</label>
+	  <input type="radio" class="radio" id="SR" title="Stake-returned free bet (rarer)" name="type" value="SR"><label title="Stake-returned free bet (rarer)" for="SR"> Free bet (SR)</label>
 	</div>
 
 <div id="backBet" style="padding-top: 15px">
-	Back stake:
+	<label title="Stake to be placed at bookmaker">Back stake:</label>
 	<input type="number" id="backStake" name="backStake" step="0.01" min="0.01" style="width: 60px">
-	Back odds:
+	<label title="Odds of bet at bookmaker">Back odds:</label>
 	<input type="number" id="backOdds" name="backOdds" step="0.01" min="0.01" style="width: 60px">
 </div>
 
 <div id="layBet" style="padding-top: 8px">
-	<label id="layLabel" >Lay odds:</label>
+	<label id="layLabel" <label title="Odds of bet at exchange">Lay odds:</label>
 	<input type="number" id="layOdds" name="layOdds" step="0.01" min="0.01" style="width: 68px">
-	Commission (%):
+	<label title="Commission charged by exchange">Commission (%):</label>
 	<input type="number" id="layCommission" name="commission" step="0.01" min="0.1" style="width: 35px">
 </div>
 
 <div id="layStake" style="padding-top: 8px">
-	<strong>Lay stake required:</strong> £
+	<strong title="Stake required at exchange">Lay stake required:</strong> £
 	<i id="requiredStake"></i>
 	<div id="profitContainer">
-		<strong>Total profit:</strong> £
+		<strong title="Profit from bet">Total profit:</strong> £
 		<i id="profit"></i>
 	</div>
 	<div id="liabilityContainer">
-		<strong>Lay liability:</strong> £
+		<strong title="Total liability of lay bet">Lay liability:</strong> £
 		<i id="liability"></i>
-		<div id="extractionContainer">
+		<div id="extractionContainer" title="Percentage of free bet converted into profit">
 			<strong>Bet extraction (%):</strong>
 			<i id="extraction">%</i>
 		</div>
@@ -161,7 +161,7 @@
 
 </div>
 <div id="buttonContainer">
-	<button id="clickme">Notify</button>
+	<button id="clickme" title="Make a notification of these details">Notify</button>
 </div>
 <script src="/js/calculate.js"></script>
 
