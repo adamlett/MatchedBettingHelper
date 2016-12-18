@@ -79,7 +79,7 @@ function calculate(){
 			var extraction = "N/A";
 		}
 		else {
-			var extraction = ((netProfit / freeStake) * 100) + "%";
+			var extraction = ((netProfit / freeStake) * 100).toFixed(1) + "%";
 		}
 		var info = document.getElementById("info").value;
 		document.getElementById("requiredStake").innerHTML = layStake;
