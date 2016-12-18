@@ -11,8 +11,9 @@ A chrome extension that provides a quick matched betting calculator.
  * Confirmed working:
    * Smarkets
     * bet365
+    * Ladbrokes
+    * Coral
  * Not working:
-   * Coral
     * SkyBet
  * Everything else untested
  
