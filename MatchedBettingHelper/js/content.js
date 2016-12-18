@@ -42,6 +42,12 @@ function getElementOnClick(e) {
     var targetElement = target.get(0).innerHTML;
     console.log(targetElement);
     odds = targetElement;
+
+    if (window.location.hostname.toString().includes("coral.co.uk")){
+      var lines = odds.split(/\r?\n/);
+      console.log(lines[5]);
+      odds = parseFloat(lines[5]);
+    }
   }
 }
 
