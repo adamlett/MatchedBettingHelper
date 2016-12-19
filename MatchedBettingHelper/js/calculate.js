@@ -172,6 +172,12 @@ function validate(backStake, backOdds, layOdds, layCommission){
 // 	}
 // });
 
+function popOut() {
+  chrome.windows.create({'url': 'src/browser_action/browser_action.html', 'type': 'popup', 'height': 292, 'width': 445, 'top': (screen.height-344), 'left': (screen.width-453)}, function(window) {
+   });
+}
+
+document.getElementById('popOut').addEventListener('click', popOut);
 document.getElementById('clickme').addEventListener('click', betNotification);
 document.addEventListener('DOMContentLoaded', function() {
   loadData();

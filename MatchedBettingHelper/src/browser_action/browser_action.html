@@ -65,8 +65,8 @@
 	#layStake {
 
 	}
-	#clickme {
-
+	#clickme, #popOut {
+		margin: 0 40px;
 		padding: 5px 39px 5px 39px;
 	  color: #FFF;
 	  background-color: #4bc970;
@@ -117,8 +117,9 @@
 
 </style>
 
+<title>Matched Betting Calculator Extension</title>
+
 <div id="mainPopup">
-<h1>Matched Betting Calculator</h1>
 
 <div id="descriptionContainer">
 	<input type="text" id="info" placeholder="Optional event description" title="Useful for keeping track of bet selection">
@@ -162,6 +163,7 @@
 </div>
 <div id="buttonContainer">
 	<button id="clickme" title="Make a notification of these details">Notify</button>
+	<button id="popOut" title="Create a window from this calculator">Popout</button>
 </div>
 <script src="/js/calculate.js"></script>
 
